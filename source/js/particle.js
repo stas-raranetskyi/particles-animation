@@ -1,4 +1,4 @@
-import { circle, createVector, random, dist} from './helpers';
+import { circle, createVector, random} from './helpers';
 
 export default class Particle {
     constructor(x, y, color = 'rgba(255, 40, 40, 1)', radius = 3, speed = 0.4) {

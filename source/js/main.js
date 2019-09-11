@@ -11,7 +11,10 @@ class ParticlesAnimation{
             backgroundColor: '#000000',
             particlesCount: 120,
             maxLengthParticle: 120,
-            colorParticleRGB: '255, 255, 255',
+            colorParticle: '#ffffff',
+            radiusParticle: 3,
+            speedParticle: 1,
+            colorLineRGB: '255, 255, 255',
             ...settings
         };
         this.canvas = document.getElementById(this.settings.id);
@@ -23,7 +26,10 @@ class ParticlesAnimation{
         this.canvas.style.backgroundColor = this.settings.backgroundColor;
         this.particlesCount = this.settings.particlesCount;
         this.maxLengthParticle = this.settings.maxLengthParticle;
-        this.colorParticleRGB = this.settings.colorParticleRGB;
+        this.colorLineRGB = this.settings.colorLineRGB;
+        this.colorParticle = this.settings.colorParticle;
+        this.radiusParticle = this.settings.radiusParticle;
+        this.speedParticle = this.settings.speedParticle;
         this.particles = [];
     }
 
@@ -43,7 +49,7 @@ class ParticlesAnimation{
                 const distance = dist(this.particles[i].pos, this.particles[j].pos);
                 if(distance <= this.maxLengthParticle){
                     const opacity = 1 - distance / this.maxLengthParticle;
-                    line(this.context, x1, y1, x2, y2, 1, `rgba(${this.colorParticleRGB}, ${opacity})`);
+                    line(this.context, x1, y1, x2, y2, 1, `rgba(${this.colorLineRGB}, ${opacity})`);
                 }
             }
         }
@@ -58,7 +64,7 @@ class ParticlesAnimation{
         for(let i = 0; i < this.particlesCount; i++){
             const x = random(0, this.width);
             const y = random(0, this.height);
-            this.particles.push(new Particle(x, y));
+            this.particles.push(new Particle(x, y, this.colorParticle, this.radiusParticle, this.speedParticle));
         }
         this.step();
     }
