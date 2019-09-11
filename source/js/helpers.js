@@ -63,3 +63,15 @@ export const getWindowSize = () => {
         h: window.innerHeight
     }
 }
+
+let timerDelay = null;
+export const delay = (cb, timeout = 300) => {
+    if(timerDelay){
+        clearTimeout(timerDelay);
+    }
+    timerDelay = setTimeout(() => {
+        if(typeof cb === 'function'){
+            cb();
+        }
+    }, timeout);
+};
