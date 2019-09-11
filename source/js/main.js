@@ -70,4 +70,6 @@ class ParticlesAnimation{
     }
 }
 
-new ParticlesAnimation().run();
+new ParticlesAnimation({
+    colorLineRGB: '255, 250, 250',
+}).run();
