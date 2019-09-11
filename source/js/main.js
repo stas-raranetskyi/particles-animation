@@ -124,5 +124,7 @@ class ParticlesAnimation{
     }
 }
 
+new ParticlesAnimation().run();
+
 export default ParticlesAnimation;
 
